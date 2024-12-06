@@ -11,4 +11,6 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
+*.bundle
+*.bundle.js
 web-build/
