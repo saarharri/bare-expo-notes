@@ -9,20 +9,20 @@ export default function () {
     const worklet = new Worklet()
 
     const source = `
-      const { IPC } = BareKit
+    const { IPC } = BareKit
 
-      IPC.setEncoding('utf8')
-      IPC.on('data', (data) => console.log(data))
-      IPC.write('Hello from Bare!')
+    IPC.setEncoding('utf8')
+    IPC.on('data', (data) => console.log(data))
+    IPC.write('Hello from Bare!')
     `
 
-    worklet.start('/app.js', source).then(() => {
-      const { IPC } = worklet
+    worklet.start('/app.js', source)
 
-      IPC.setEncoding('utf8')
-      IPC.on('data', (data: string) => setReponse(data))
-      IPC.write('Hello from React Native!')
-    })
+    const { IPC } = worklet
+
+    IPC.setEncoding('utf8')
+    IPC.on('data', (data: string) => setReponse(data))
+    IPC.write('Hello from React Native!')
   }, [])
 
   return <Text>{response}</Text>
