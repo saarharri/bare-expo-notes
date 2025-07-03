@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Text } from 'react-native'
 import { Worklet } from 'react-native-bare-kit'
+import b4a from 'b4a'
 
 export default function () {
   const [response, setReponse] = useState<string | null>(null)
@@ -11,18 +12,16 @@ export default function () {
     const source = `
     const { IPC } = BareKit
 
-    IPC.setEncoding('utf8')
-    IPC.on('data', (data) => console.log(data))
-    IPC.write('Hello from Bare!')
+    IPC.on('data', (data) => console.log(data.toString()))
+    IPC.write(Buffer.from('Hello from Bare!'))
     `
 
     worklet.start('/app.js', source)
 
     const { IPC } = worklet
 
-    IPC.setEncoding('utf8')
-    IPC.on('data', (data: string) => setReponse(data))
-    IPC.write('Hello from React Native!')
+    IPC.on('data', (data: Uint8Array) => setReponse(b4a.toString(data)))
+    IPC.write(b4a.from('Hello from React Native!'))
   }, [])
 
   return <Text>{response}</Text>
