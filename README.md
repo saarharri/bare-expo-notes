@@ -1,29 +1,18 @@
-# Bare on Expo
+# Requirements
 
-Example of embedding Bare in an Expo application using <https://github.com/holepunchto/react-native-bare-kit>.
+Gradle version 8.10.2
+Java 23
+Android SDK (>= 29), NDK
+node 22.14.0
+Ubuntu
 
 ## Usage
 
-Start by installing the dependencies:
-
 ```sh
 npm install
+npm run dev:android
 ```
 
-When finished, you can run the app on either iOS or Android.
+# Bare on Expo
 
-### iOS
-
-```sh
-npm run ios
-```
-
-### Android
-
-```sh
-npm run android
-```
-
-## License
-
-Apache-2.0
+Example of embedding Bare in an Expo application using <https://github.com/holepunchto/react-native-bare-kit>.
