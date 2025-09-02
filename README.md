@@ -1,10 +1,10 @@
 # Requirements
 
-Gradle version 8.10.2
-Java 23
-Android SDK (>= 29), NDK
-node 22.14.0
-Ubuntu
+- Gradle version 8.10.2
+- Java 23
+- Android SDK (>= 29), NDK
+- node 22.14.0
+- Ubuntu
 
 ## Usage
 
