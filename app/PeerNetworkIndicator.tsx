@@ -27,6 +27,8 @@ import PeerSpinner from './common/PeerSpinner'
 import { PRIMARY_GREEN_COLOR, PRIMARY_RED_COLOR } from './utils'
 import { Ionicons } from '@expo/vector-icons'
 
+const topicKey = process.env.EXPO_PUBLIC_TOPIC_KEY 
+
 interface Props {
   onRpcReady?: (rpc: any) => void
 }
@@ -45,8 +47,13 @@ export default function PeerNetworkIndicator(props: Props) {
   const handleJoinNetwork = async () => {
     setIsConnecting(true)
 
+    if (!topicKey){
+      console.error("Define the topic key in .env file")
+      return
+    }
+
     const worklet = new Worklet()
-    worklet.start('/app.bundle', bundle, [String(documentDirectory)])
+    worklet.start('/app.bundle', bundle, [String(documentDirectory), topicKey])
     const { IPC } = worklet
 
     workletRef.current = worklet

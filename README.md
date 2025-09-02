@@ -8,6 +8,12 @@
 
 ## Usage
 
+Copy the environment template file and replace `EXPO_PUBLIC_TOPIC_KEY`
+
+```sh
+cp .env-example .env
+```
+
 ```sh
 npm install
 npm run dev:android

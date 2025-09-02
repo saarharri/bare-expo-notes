@@ -6,6 +6,7 @@ export class NotesCoreService {
 
     this.storagePath = storagePath
     this.core = null
+    // todo: just a placeholder. needs to be replace with proper author id logic
     this.authorId = 'user_' + Math.random().toString(36).substr(2, 9)
     this.onNotesUpdatedCallback = null
     this.initialized = false

@@ -15,3 +15,4 @@ npm-debug.*
 *.bundle.js
 web-build/
 *bundle.mjs
+.env

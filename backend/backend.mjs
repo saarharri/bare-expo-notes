@@ -17,13 +17,13 @@ import { NetworkService } from './NetworkService.mjs'
 import { NotesCoreService } from './NotesCoreService.mjs'
 import b4a from 'b4a'
 
-// Static topic key per app instance to avoid regeneration.
-//  (no need for QR codes or sharing manually.)
-const TOPIC = 'bbdd269faec5fe810bafaf33498f1bd39805cbc14f39680ae8051481ef6fd6b3'
-
 const { IPC } = BareKit
 
 const path = join(URL.fileURLToPath(Bare.argv[0]), 'school-notes-app')
+
+// Static topic key per app instance to avoid regeneration.
+//  (no need for QR codes or sharing manually.)
+const TOPIC = Bare.argv[1]
 
 const networkService = new NetworkService()
 const notesCoreService = new NotesCoreService(path)
